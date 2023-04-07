@@ -1,0 +1,82 @@
+<html><head>
+           <title>Capitalize (Indo)</title>
+        <style>
+            .text
+            {
+                font-family:    Arial, Helvetica, sans-serif;
+
+            }
+        </style>
+<script>
+function myFunction() {
+  var copyText = document.getElementById("hasil");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("Copied: " + copyText.value);
+}
+</script>
+       
+<script> 
+    var indo = function(str, glue){
+    glue = (glue) ? glue : ['di','ke','dari','pada','dalam','yaitu','kepada','daripada','untuk','bagi','ala','bak','tentang','mengenai','sebab','secara','terhadap','di','ke','dari','dalam','atas','oleh','kepada','terhadap','akan','dengan','tentang','sampai','dan','serta','tapi','tetap','namun','melainkan','padahal','sedangkan','yang','agar','supayabiar','biarpun','jika','kalau','jikalau','asal','asalkan','bila','manakala','sejak','semenjak','sedari','sewaktu','tatkala','ketika','sementara','begitu','seraya','selagi','selama','sambil','demi','setelah','sesudah','sebelum','sehabis','selesai','seusai','hingga','sampai','andaikan','seandainya','umpamanya','sekiranya','biar','biarpun','walau','walaupun','sekalipun','sungguh','sungguhpun','kendati','kendatipun','seakan-akan','seakan','akan','seolah-olah','seolah','olah','sebagaimana','seperti','sebagai','laksana','ibarat','daripada','alih-alih', 'alih','sebab','karena','olehkarena','olehsebab','sehingga','sampai','maka','makanya','dong','sih','wow','yuk','lho','para','si','sih','pun','per'];
+    return str.replace(/(\w)(\w*)/g, function(_, i, r){
+        var j = i.toUpperCase() + (r != null ? r : "");
+        return (glue.indexOf(j.toLowerCase())<0)?j:j.toLowerCase();
+    });
+};
+    
+    </script>  
+    
+    
+    
+<script> 
+    var english = function(str, glue){
+    glue = (glue) ? glue : ['a', 'an', 'the', 'and', 'but', 'or', 'for', 'nor', 'on', 'at', 'to', 'from', 'by', 'of', 'in', 'with', 'without', 'over'];
+    return str.replace(/(\w)(\w*)/g, function(_, i, r){
+        var j = i.toUpperCase() + (r != null ? r : "");
+        return (glue.indexOf(j.toLowerCase())<0)?j:j.toLowerCase();
+    });
+};
+    
+    </script>  
+    
+        
+        </head><body>
+            
+<div class="text" style="padding-top:5px; padding-right:20px; padding-bottom:20px; padding-left:20px">
+
+<h2>Bahasa Indonesia</h2>
+<form>
+    <a style="font-size: 14pt">Ketik <b>judul</b> disini:</a><br>
+  <textarea style="font-size: 13pt" rows="4" cols="40" name="input" onchange="form.output.value=indo(this.value)" onkeyup="form.output.value=indo(this.value)"></textarea>
+    <br>  <br> <a style="font-size: 14pt">Penempatan kapital yang tepat:</a>
+  <br><textarea id="hasil" style="font-size: 13pt" rows="4" cols="40" name="output" readonly="" onclick="select(this)"></textarea>
+</form>
+    
+
+
+
+<button style="font-size: 12pt" onclick="myFunction()">Salin Teks</button>
+        </div>
+        
+        
+    
+    <div class="text" style="padding-top:5px; padding-right:20px; padding-bottom:20px; padding-left:20px">
+
+<h2>English</h2>
+<form>
+    <a style="font-size: 14pt">Write your <b>title</b> here:</a><br>
+  <textarea style="font-size: 13pt" rows="4" cols="40" name="input" onchange="form.output.value=english(this.value)" onkeyup="form.output.value=english(this.value)"></textarea>
+    <br>  <br> <a style="font-size: 14pt">Properly capitalized sentence:</a>
+  <br><textarea id="hasil" style="font-size: 13pt" rows="4" cols="40" name="output" readonly="" onclick="select(this)"></textarea>
+</form>
+    
+
+
+
+<button style="font-size: 12pt" onclick="myFunction()">Copy Text</button>
+        </div>
+        
+        
+</body></html>
