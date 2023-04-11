@@ -15,6 +15,14 @@ function myFunction() {
   document.execCommand("copy");
   alert("Copied: " + copyText.value);
 }
+    
+    function myFunctionEn() {
+  var copyTexten = document.getElementById("results");
+  copyTexten.select();
+  copyTexten.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("Copied: " + copyTexten.value);
+}
 </script>
        
 <script> 
@@ -60,7 +68,7 @@ function myFunction() {
 <button style="font-size: 12pt" onclick="myFunction()">Salin Teks</button>
         </div>
         
-        <br> <br>
+        
     
     <div class="text" style="padding-top:5px; padding-right:20px; padding-bottom:20px; padding-left:20px">
 
@@ -69,13 +77,13 @@ function myFunction() {
     <a style="font-size: 14pt">Write your <b>title</b> here:</a><br>
   <textarea style="font-size: 13pt" rows="4" cols="40" name="input" onchange="form.output.value=english(this.value)" onkeyup="form.output.value=english(this.value)"></textarea>
     <br>  <br> <a style="font-size: 14pt">Properly capitalized sentence:</a>
-  <br><textarea id="hasil" style="font-size: 13pt" rows="4" cols="40" name="output" readonly="" onclick="select(this)"></textarea>
+  <br><textarea id="results" style="font-size: 13pt" rows="4" cols="40" name="output" readonly="" onclick="select(this)"></textarea>
 </form>
     
 
 
 
-<button style="font-size: 12pt" onclick="myFunction()">Copy Text</button>
+<button style="font-size: 12pt" onclick="myFunctionEn()">Copy Text</button>
         </div>
         
         
